@@ -16,7 +16,7 @@ function getDogImage(searchTerm) {
       if (responseJson.status === 'success'){
         displayResults(responseJson);
       }
-      throw Error;
+      else throw Error;
     })
     .catch(error => alert('Something went wrong. Try again later.')); 
 }
@@ -34,7 +34,7 @@ responseJson will not have a status property, however response will */
 function displayResults(responseJson){
   console.log(responseJson);
   $('#results-list').empty();
-  $('#results-list').replaceWith(
+  $('#results-list').append(
     `<img src="${responseJson.message}" class="results-list">`
   )
   //display the results section
